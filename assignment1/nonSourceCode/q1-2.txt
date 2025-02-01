@@ -1,0 +1,16 @@
+Q1: Explain what we mean by "data abstraction"?
+
+A: Data abstraction refers to the delineation of a data types logical properties from its implementation. In
+other words, it is a way to separate the computer's view of data from humans' view of data; it is about
+knowing only about the operations that can be performed on the data not the small details of how to implement,
+in code, the data to simplify complexity through abstraction and focus on what matters
+
+
+Q2: Explain "data encapsulation". What is the programming goal once we use encapsulation?
+
+A: Data encapsulation essentially is wrapping the data and methods or functions that operate
+on the data and limiting access to parts of objects. A programming language that provides
+a data type and operations to perform on that data by function or within classes. The
+programming goal of encapsulation is creating modular code so that the code is well
+structured and reusable while also preventing direct access to objects to prevent unintended
+modifications
