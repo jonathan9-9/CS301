@@ -13,6 +13,7 @@ struct Triangle {
   Point p3;
 };
 
+// function parameter is implemented as reference parameter(&)
 float computeTriangleArea(const Triangle &triangle);
 
 int main() {
@@ -59,6 +60,7 @@ int main() {
   return 0;
 }
 
+// use of shoelace formula to calculate area using three given coordinates
 float computeTriangleArea(const Triangle &triangle) {
   return 0.5 *
          fabs((triangle.p1.x * triangle.p2.y + triangle.p2.x * triangle.p3.y +
