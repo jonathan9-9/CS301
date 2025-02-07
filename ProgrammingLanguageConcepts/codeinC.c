@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include <inttypes.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef enum {
     A = 4,
@@ -22,15 +23,20 @@ double getArrayAverage(int *arr, int size) {
 void convertCharToLetterGrade(char grade) {
     switch(grade) {
         case 'a' : case 'A':
-            return 4;
+            grade = 4;
+            return;
         case 'b' : case 'B':
-            return 3;
+            grade = 3;
+            return;
         case 'c' : case 'C':
-            return 2;
+            grade = 2;
+            return;
         case 'd' : case 'D':
-            return 1;
+            grade = 1;
+            return;
         case 'f' : case 'F':
-            return 0;
+            grade = 0;
+            return;
         default:
             printf("Warning... Invalid Character... Recording an F.\n");
             return 0;
@@ -66,7 +72,7 @@ int main() {
     printf("Enter number of previous courses");
     scanf("%i", &numPrevCourses);
 
-    while (getchar() != "\n") continue;
+    while (getchar() != '\n') continue;
 
     // type cast the pointer to LetterGrade to be more explicit
     LetterGrade *prevGrades = (LetterGrade*) malloc(numPrevCourses * sizeof(LetterGrade)); // total size in bytes
@@ -75,6 +81,43 @@ int main() {
         printf("Enter letter grade for course %i: ", courseIdx);
         char letterGrade;
         letterGrade = getchar();
+        while (getchar() != '\n') continue;
+        convertCharToLetterGrade(&letterGrade);
+        prevGrades[courseIdx] = (LetterGrade) letterGrade;
     }
+
+    int32_t numExams;
+    printf("Enter number of exams this semester: ");
+    scanf("%i", &numExams);
+    while (getchar() != '\n') continue;
+
+    int32_t *examGrades = (int32_t*) malloc(numExams * sizeof(int32_t));
+
+    for (int32_t examIdx = 0; examIdx < numExams; examIdx++) {
+        printf("Enter grade for exam %i as an integer: ", examIdx);
+        scanf(&examGrades[examIdx]);
+        while (getchar() != '\n');
+    }
+
+    const char fullName[50];
+
+    sprintf(fullName, "%s %s", firstName, lastName);
+
+    printf("Grade Report For %s:\n", fullName);
+    const double examAverage = getArrayAverage(examGrades, numExams);
+    printf("Your exam average is: %lf\n", examAverage);
+
+    LetterGrade newLetterGrade = getLetterGradeFromAverage(examAverage);
+    prevGrades = (LetterGrade*) realloc(prevGrades, (numPrevCourses + 1) * sizeof(LetterGrade));
+    prevGrades[numPrevCourses] = newLetterGrade;
+
+    free(prevGrades);
+    free(examGrades);
+
+    const double gpa = getArrayAverage((int*) prevGrades, numPrevCourses + 1);
+    printf("Your latest GPA is: %lf\n ", gpa);
+
+
     return 0;
+
 }
