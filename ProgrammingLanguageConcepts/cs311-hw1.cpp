@@ -63,6 +63,7 @@ int main() {
   string lastName;
   cout << "Please enter your last name: ";
   cin >> lastName;
+
   int32_t numPrevCourses;
   cout << "Enter number of previous courses: ";
   cin >> numPrevCourses;

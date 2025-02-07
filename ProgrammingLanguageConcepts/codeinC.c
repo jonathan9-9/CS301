@@ -1,13 +1,14 @@
 #include<stdio.h>
 #include <inttypes.h>
+#include <stdlib.h>
 
-enum LetterGrade {
+typedef enum {
     A = 4,
     B = 3,
     C = 2,
     D = 1,
     F = 0
-};
+} LetterGrade;
 
 double getArrayAverage(int *arr, int size) {
     double sum = 0;
@@ -36,10 +37,44 @@ void convertCharToLetterGrade(char grade) {
     }
 }
 
+ LetterGrade getLetterGradeFromAverage(const double avg) {
+    if (avg >= 90) {
+        return A;
+    } else if (avg >= 80) {
+        return B;
+    } else if (avg >= 70) {
+        return C;
+    } else if (avg >= 60) {
+        return D;
+    } else {
+        return F;
+    }
+}
 
 int main() {
 
+    char firstName[40];
+    printf("Please enter your first name: ");
+    scanf("%s", firstName);
 
+    char lastName[40];
+    printf("Please enter your last name: ");
+    scanf("%s", lastName);
 
+    // fixed integer width type same in C
+    int32_t numPrevCourses;
+    printf("Enter number of previous courses");
+    scanf("%i", &numPrevCourses);
+
+    while (getchar() != "\n") continue;
+
+    // type cast the pointer to LetterGrade to be more explicit
+    LetterGrade *prevGrades = (LetterGrade*) malloc(numPrevCourses * sizeof(LetterGrade)); // total size in bytes
+
+    for (int32_t courseIdx = 0; courseIdx < numPrevCourses; courseIdx++) {
+        printf("Enter letter grade for course %i: ", courseIdx);
+        char letterGrade;
+        letterGrade = getchar();
+    }
     return 0;
 }
