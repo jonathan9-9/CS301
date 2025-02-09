@@ -13,6 +13,7 @@ class Circle : public Shape {
 public:
   Circle(double r) : radius(r) {}
 
+  // override to override the getArea() function defined in base class (shape)
   double getArea() const override { return M_PI * radius * radius; }
 
   double getPerimeter() const override { return 2 * M_PI * radius; }
@@ -43,11 +44,13 @@ private:
   double width;
 };
 int main() {
-  Shape *shapes[] = {new Rectangle(3, 4), new Circle(4)}; // Array of pointers
+  Shape *shapes[] = {
+      new Rectangle(3, 4),
+      new Circle(4)}; // Array of pointers; base class pointer(shape)
 
   for (Shape *shape : shapes) {
     shape->displayInformation();
-    delete shape;
+    delete shape; // free the resources
   }
   //   Circle circ(4);
   //   Rectangle rect(5, 7);
