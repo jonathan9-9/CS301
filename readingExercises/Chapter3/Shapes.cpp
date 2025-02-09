@@ -43,11 +43,17 @@ private:
   double width;
 };
 int main() {
-  Circle circ(4);
-  Rectangle rect(5, 7);
+  Shape *shapes[] = {new Rectangle(3, 4), new Circle(4)};
 
-  circ.displayInformation();
-  rect.displayInformation();
+  for (Shape *shape : shapes) {
+    shape->displayInformation();
+    delete shape;
+  }
+  //   Circle circ(4);
+  //   Rectangle rect(5, 7);
+
+  //   circ.displayInformation();
+  //   rect.displayInformation();
 
   return 0;
 }
