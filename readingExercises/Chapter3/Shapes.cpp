@@ -43,7 +43,7 @@ private:
   double width;
 };
 int main() {
-  Shape *shapes[] = {new Rectangle(3, 4), new Circle(4)};
+  Shape *shapes[] = {new Rectangle(3, 4), new Circle(4)}; // Array of pointers
 
   for (Shape *shape : shapes) {
     shape->displayInformation();
