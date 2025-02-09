@@ -37,7 +37,22 @@ public:
 
   double getPerimeter() const { return 2 * (length + width); }
 
+  void displayInformation() const {
+    std::cout << "Area of Rectangle: " << getArea()
+              << "\nPerimeter of Rectangle: " << getPerimeter() << "\n";
+  }
+
 private:
   double length;
   double width;
 };
+
+int main() {
+  Circle circ(4);
+  Rectangle rect(5, 7);
+
+  circ.displayInformation();
+  rect.displayInformation();
+
+  return 0;
+}
