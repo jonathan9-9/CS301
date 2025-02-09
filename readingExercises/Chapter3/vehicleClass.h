@@ -1,4 +1,6 @@
 // Specification file
+#ifndef VEHICLE_H
+#define VEHICLE_H
 #include <string>
 
 class Vehicle {
@@ -14,3 +16,5 @@ protected:
   std::string shape;
   int numWheels;
 };
+
+#endif

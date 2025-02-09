@@ -3,8 +3,8 @@
 #include <iostream>
 
 int main() {
-  Car firstCar("Box-shaped");
-  Bike firstBike("Orthogonal");
+  Car firstCar("Box-shaped");   // derived class
+  Bike firstBike("Orthogonal"); // derived class
 
   firstCar.displayInfo();
   firstBike.displayInfo();
