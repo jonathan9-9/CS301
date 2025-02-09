@@ -1,0 +1,50 @@
+Q1: Explain C++ Object Oriented Programming (OOP) concepts briefly.
+
+The design of object-oriented programming revolves around the use of data objects and functions that manipulate
+the data on which they operate on. This design is useful for working with large, complex programs that increase the scalability
+and reusability of programs through the use of concepts such as encapsulation, inheritance, and polymorphism, which are
+essential topics in OOP design. Encapsulation occurs within the class itself; it wraps the data and functions inside the
+class scope or we can have data that resides in the global or local scope depending on the goal of our program. In
+inheritance base classes can provide properties to derived classes with general information while derived classes specialize
+in something less abstract and more specific to the object. Polymorphism is another useful feature in object design as it allows
+us to create multiple objects based on parameter types so that compiler can deduce which method to use.
+
+Q2: Distinguish between a base class and a derived class? Provide an example.
+
+A base class is a class whose properties are inherited to the derived class and the derived class is a more specific, specialized
+class that inherits properties from the base class but also adds more specialized properties to itself. An example of this is
+a Person base class and two derived classes, Student and Teacher, and these two classes will diverge and create their own
+properties specific to Teacher and Student.
+
+Q3: Why do we need Virtual functions? Define virtual functions and show an example of a program that uses them.
+
+We need Virtual functions because they allow us to override the base class function and specify the behavior of a
+derived class function instead. Without Virtual functions the compiler will call the base class function and cause
+unexpected behavior. Virtual functions are functions in base classes that should be overridden by functions defined in
+derived class through dynamic dispatch where the function call is resolved at runtime.
+
+class Shape {
+public:
+  virtual double getArea() const = 0; // Pure Virtual Functions
+  virtual double getPerimeter() const = 0;
+  virtual void displayInformation() const = 0;
+
+  virtual ~Shape() {} // Destructor to Prevent Memory Leaks
+};
+class Circle : public Shape {
+public:
+  Circle(double r) : radius(r) {}
+
+  // override to override the getArea() function defined in base class (shape)
+  double getArea() const override { return M_PI * radius * radius; }
+
+  double getPerimeter() const override { return 2 * M_PI * radius; }
+
+  void displayInformation() const override {
+    std::cout << "Area of Circle: " << getArea()
+              << "\nCircumference of Circle: " << getPerimeter() << "\n";
+  }
+
+private:
+  double radius;
+};
