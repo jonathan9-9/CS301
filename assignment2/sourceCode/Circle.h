@@ -1,12 +1,12 @@
-#ifndef VEHICLE_H
-#define VEHICLE_H
+#ifndef CIRCLE_H
+#define CIRCLE_H
 #include <string>
 
 class Circle {
 public:
-  Circle(double r) : radius(r = 0.0) {} // Default Constructor
-  Circle(double &r);                    // Constructor
-  virtual ~Circle();                    // Destructor
+  Circle();         // Default Constructor
+  Circle(double r); // Constructor
+  ~Circle();        // Destructor
 
   void setRadius(double radius);
   double getRadius() const;
