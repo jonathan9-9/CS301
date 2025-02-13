@@ -3,20 +3,20 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef enum {
+ enum LetterGrade {
     A = 4,
     B = 3,
     C = 2,
     D = 1,
     F = 0
-} LetterGrade;
+};
 
 double getArrayAverage(int *arr, int size) {
     double sum = 0;
     for (int i = 0; i < size; i++) {
         sum += (double) arr[i];
     }
-    return sum > 0 ? sum / size : 0;
+    return sum;
 }
 
 void convertCharToLetterGrade(char *grade) {
@@ -41,7 +41,7 @@ void convertCharToLetterGrade(char *grade) {
     }
 }
 
- LetterGrade getLetterGradeFromAverage(const double avg) {
+ enum LetterGrade getLetterGradeFromAverage(const double avg) {
     if (avg >= 90) {
         return A;
     } else if (avg >= 80) {
@@ -73,7 +73,7 @@ int main() {
     while (getchar() != '\n') continue;
 
     // type cast the pointer to LetterGrade to be more explicit
-    LetterGrade *prevGrades = (LetterGrade*) malloc(numPrevCourses * sizeof(LetterGrade)); // total size in bytes
+    enum LetterGrade *prevGrades = (enum LetterGrade*) malloc(numPrevCourses * sizeof(enum LetterGrade)); // total size in bytes
 
     for (int32_t courseIdx = 0; courseIdx < numPrevCourses; courseIdx++) {
         printf("Enter letter grade for course %i: ", courseIdx + 1);
@@ -81,7 +81,7 @@ int main() {
         scanf(" %c", &letterGrade);
         while (getchar() != '\n') continue;
         convertCharToLetterGrade(&letterGrade);
-        prevGrades[courseIdx] = (LetterGrade) letterGrade;
+        prevGrades[courseIdx] = (enum LetterGrade) letterGrade;
     }
 
     int32_t numExams;
@@ -105,14 +105,14 @@ int main() {
     const double examAverage = getArrayAverage(examGrades, numExams);
     printf("Your exam average is: %.2f\n", examAverage);
 
-    LetterGrade newLetterGrade = getLetterGradeFromAverage(examAverage);
-    prevGrades = (LetterGrade*) realloc(prevGrades, (numPrevCourses + 1) * sizeof(LetterGrade));
+    enum LetterGrade newLetterGrade = getLetterGradeFromAverage(examAverage);
+    prevGrades = (enum LetterGrade*) realloc(prevGrades, (numPrevCourses) * sizeof(enum LetterGrade));
     prevGrades[numPrevCourses] = newLetterGrade;
 
 
 
     const double gpa = getArrayAverage((int*)prevGrades, numPrevCourses);
-    printf("Your latest GPA is: %.2f\n ", gpa);
+    printf("Your latest GPA is: \n ", gpa);
 
     free(prevGrades);
     free(examGrades);
@@ -121,8 +121,6 @@ int main() {
 
 }
 
-A subtle syntax difference with enums is the use of typedef, or a type definition to closely align with C++ syntax
-for function types since in C the enum keyword and enum class name must be specified instead if typedef is not used.
 A major feature not in C which is present in C++ are vectors. To work around this I used a pointer array using malloc to allocate
 memory for values passed to the function as a dynamically allocated array. A feature that C++ uses to type cast
 values is static_cast<type>(value) while in C I simply used (type) instead to type cast the value.
@@ -134,5 +132,7 @@ I directly specified the letter grade from the enum.
 
 An aspect that was difficult was allocation and dynamically reallocating memory for exam grades and previous grades arrays.
 I had to manually reallocate memory into the prevGrades dynamic array by specifying its location by name and multiplication
-of the size in bytes of the letter grade, in this case, and the total quantity (numPrevCourses + 1) for additional added
-courses to reallocate the size of the dynamic array and account for additions or deletions if there were to be any.
+of the size in bytes of the letter grade. In the switch case I treated grade as a pointer since C works with pointers to
+reference the values the being changed. For the cin.ignore() in C I used a while loop to reflect similar behavior by essentially
+using getchar() which only gets on character and ignores all input until newline is encountered to eliminate that from
+the input buffer.

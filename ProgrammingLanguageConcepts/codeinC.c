@@ -16,7 +16,7 @@ double getArrayAverage(int *arr, int size) {
     for (int i = 0; i < size; i++) {
         sum += (double) arr[i];
     }
-    return sum > 0 ? sum / size : 0;
+    return sum;
 }
 
 void convertCharToLetterGrade(char *grade) {
@@ -106,13 +106,13 @@ int main() {
     printf("Your exam average is: %.2f\n", examAverage);
 
     enum LetterGrade newLetterGrade = getLetterGradeFromAverage(examAverage);
-    prevGrades = (enum LetterGrade*) realloc(prevGrades, (numPrevCourses + 1) * sizeof(enum LetterGrade));
+    prevGrades = (enum LetterGrade*) realloc(prevGrades, (numPrevCourses) * sizeof(enum LetterGrade));
     prevGrades[numPrevCourses] = newLetterGrade;
 
 
 
     const double gpa = getArrayAverage((int*)prevGrades, numPrevCourses);
-    printf("Your latest GPA is: %.2f\n ", gpa);
+    printf("Your latest GPA is: \n ", gpa);
 
     free(prevGrades);
     free(examGrades);
