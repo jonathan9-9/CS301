@@ -3,13 +3,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef enum {
+ enum LetterGrade {
     A = 4,
     B = 3,
     C = 2,
     D = 1,
     F = 0
-} LetterGrade;
+};
 
 double getArrayAverage(int *arr, int size) {
     double sum = 0;
@@ -41,7 +41,7 @@ void convertCharToLetterGrade(char *grade) {
     }
 }
 
- LetterGrade getLetterGradeFromAverage(const double avg) {
+ enum LetterGrade getLetterGradeFromAverage(const double avg) {
     if (avg >= 90) {
         return A;
     } else if (avg >= 80) {
@@ -73,7 +73,7 @@ int main() {
     while (getchar() != '\n') continue;
 
     // type cast the pointer to LetterGrade to be more explicit
-    LetterGrade *prevGrades = (LetterGrade*) malloc(numPrevCourses * sizeof(LetterGrade)); // total size in bytes
+    enum LetterGrade *prevGrades = (enum LetterGrade*) malloc(numPrevCourses * sizeof(enum LetterGrade)); // total size in bytes
 
     for (int32_t courseIdx = 0; courseIdx < numPrevCourses; courseIdx++) {
         printf("Enter letter grade for course %i: ", courseIdx + 1);
@@ -81,7 +81,7 @@ int main() {
         scanf(" %c", &letterGrade);
         while (getchar() != '\n') continue;
         convertCharToLetterGrade(&letterGrade);
-        prevGrades[courseIdx] = (LetterGrade) letterGrade;
+        prevGrades[courseIdx] = (enum LetterGrade) letterGrade;
     }
 
     int32_t numExams;
@@ -105,8 +105,8 @@ int main() {
     const double examAverage = getArrayAverage(examGrades, numExams);
     printf("Your exam average is: %.2f\n", examAverage);
 
-    LetterGrade newLetterGrade = getLetterGradeFromAverage(examAverage);
-    prevGrades = (LetterGrade*) realloc(prevGrades, (numPrevCourses + 1) * sizeof(LetterGrade));
+    enum LetterGrade newLetterGrade = getLetterGradeFromAverage(examAverage);
+    prevGrades = (enum LetterGrade*) realloc(prevGrades, (numPrevCourses + 1) * sizeof(enum LetterGrade));
     prevGrades[numPrevCourses] = newLetterGrade;
 
 
