@@ -16,7 +16,7 @@ double getArrayAverage(int *arr, int size) {
     for (int i = 0; i < size; i++) {
         sum += (double) arr[i];
     }
-    return sum;
+    return sum / size;
 }
 
 void convertCharToLetterGrade(char *grade) {
