@@ -11,3 +11,9 @@ RelationType ItemType::ComparedTo(ItemType otherItem) const {
     return EQUAL;
   }
 }
+
+void ItemType::Print(std::ostream &out) const { out << value; }
+
+void ItemType::Initialize(std::string stringValue) { value = stringValue; }
+
+std::string ItemType::GetValue() const { return value; }
