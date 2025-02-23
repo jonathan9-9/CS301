@@ -5,6 +5,7 @@ public:
   UnsortedType(); // class constructor
   void MakeEmpty();
   bool IsFull() const;
+  int getLength() const;
 
 private:
   int length;
