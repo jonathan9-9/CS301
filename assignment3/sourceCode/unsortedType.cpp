@@ -12,3 +12,15 @@ void UnsortedType::PutItem(ItemType item) { // Mutator (transformer)
     length++;
   }
 }
+
+bool UnsortedType::GetItem(ItemType item, bool &found) const {
+  found = false;
+  for (int i = 0; i < length; i++) {
+    if (info[i].ComparedTo(item) == EQUAL) {
+      found = true;
+      return found;
+    } else {
+      return found;
+    }
+  }
+}
