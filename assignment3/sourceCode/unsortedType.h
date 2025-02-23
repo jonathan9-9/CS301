@@ -4,6 +4,7 @@ class UnsortedType {
 public:
   UnsortedType(); // class constructor
   void MakeEmpty();
+  void PutItem(ItemType);
   bool IsFull() const;
   int getLength() const;
 
