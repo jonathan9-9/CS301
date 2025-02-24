@@ -55,5 +55,13 @@ int main() {
   }
   std::cout << "'" << word2 << "'" << "\n";
 
+  // deleting a string
+  inputFile >> word;
+  ItemType deleteItem;
+  deleteItem.Initialize(word);
+  list.DeleteItem(deleteItem);
+
+  // updated list
+
   return 0;
 }
