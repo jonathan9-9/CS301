@@ -37,5 +37,23 @@ int main() {
     std::cout << "'" << word << "' was not found in the list" << "\n";
   }
 
+  // compare two strings
+  std::string word1, word2;
+  inputFile >> word1 >> word2;
+  ItemType item1, item2;
+  item1.Initialize(word1);
+  item2.Initialize(word2);
+  RelationType result = item1.ComparedTo(item2);
+
+  std::cout << "Result of Comparing Two Strings: '" << word1 << "' is ";
+  if (result == LESS) {
+    std::cout << "LESS than ";
+  } else if (result == GREATER) {
+    std::cout << "GREATER than ";
+  } else {
+    std::cout << "EQUAL to";
+  }
+  std::cout << "'" << word2 << "'" << "\n";
+
   return 0;
 }
