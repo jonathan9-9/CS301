@@ -59,3 +59,11 @@ void UnsortedType::DeleteItem(ItemType item) {
     }
   }
 }
+
+void UnsortedType::PrintList() const {
+  for (int i = 0; i < length; i++) {
+    info[i].Print(std::cout);
+    std::cout << " ";
+  }
+  std::cout << "\n";
+}
