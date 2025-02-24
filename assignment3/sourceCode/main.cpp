@@ -62,6 +62,10 @@ int main() {
   list.DeleteItem(deleteItem);
 
   // updated list
+  std::cout << "Updated list after deleting '" << word << "': ";
+  list.PrintList();
+
+  inputFile.close();
 
   return 0;
 }
