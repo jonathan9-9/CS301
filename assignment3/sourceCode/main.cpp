@@ -25,5 +25,17 @@ int main() {
   std::cout << "Stored List: ";
   list.PrintList();
 
+  inputFile >> word;
+  ItemType searchItem;
+  searchItem.Initialize(word);
+  bool found;
+  list.GetItem(searchItem, found);
+
+  if (found) {
+    std::cout << "'" << word << "' was found in the list." << "\n";
+  } else {
+    std::cout << "'" << word << "' was not found in the list" << "\n";
+  }
+
   return 0;
 }
