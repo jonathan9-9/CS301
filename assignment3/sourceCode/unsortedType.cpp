@@ -18,17 +18,7 @@ ItemType UnsortedType::GetNextItem() {
   return info[currentPos];
 }
 
-// bool UnsortedType::GetItem(ItemType item, bool &found) const {
-//   found = false;
-//   for (int i = 0; i < length; i++) {
-//     if (info[i].ComparedTo(item) == EQUAL) {
-//       found = true;
-//       return found;
-//     } else {
-//       return found;
-//     }
-//   }
-// }
+void UnsortedType::ResetList() { currentPos = -1; }
 
 ItemType UnsortedType::GetItem(ItemType item, bool &found) const {
   int location = 0;

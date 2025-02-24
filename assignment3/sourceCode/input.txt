@@ -1,0 +1,5 @@
+5
+apple banana cherry date elderberry
+banana
+apple cherry
+date
