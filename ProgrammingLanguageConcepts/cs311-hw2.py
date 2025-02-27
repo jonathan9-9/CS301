@@ -39,3 +39,9 @@ def create_if_stat(depth):
         f"if ({create_expression()}) {create_stat(depth + 1)} else {create_cmpd_stat(depth + 1)}",
         f"if ({create_expression()}) {create_cmpd_stat(depth + 1)} else {create_cmpd_stat(depth + 1)}",
     ])
+
+
+def create_iter_stat(depth):
+
+    body = create_stat(depth + 1) if random.choice([True, False]) else create_cmpd_stat(depth + 1)
+    return f"while ({create_expression()}) {body}"
