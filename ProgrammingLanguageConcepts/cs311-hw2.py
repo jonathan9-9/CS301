@@ -84,3 +84,10 @@ def create_id():
 def create_const():
     constant = str(random.choice(string.digits)) + ''.join(random.choice(list(string.digits)) for _ in range(2))
     return constant
+
+
+if __name__ == "__main__":
+    code = program()
+    with open("generatedCode.cpp", "w") as f:
+        f.write(code)
+        f.close()
