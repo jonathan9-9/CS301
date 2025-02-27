@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
 (Question 2)
 
-Generated Code #1
+Generated Code Example #1
 
 int main() {
   if (hso)
@@ -111,7 +111,7 @@ int main() {
 }
 
 
-Generated Code #2
+Generated Code Example #2
 
 int main() {
   while (108 - tuG)
@@ -125,11 +125,11 @@ int main() {
 }
 
 Some of the issues or errors in the generated C++ code is that while syntactically correct the meaning that the program conveys
-or the semantics is illogically wrong. For example, we have declared but uninitialized variables in control and loop structures
+or the semantics is logically wrong. For example, we have declared but uninitialized variables in control and loop structures
 which should occupy values that convey meaning and parallel operands with those with which are involved within the operation itself.
 The other error is that although certain values are initialized to their variables the value is not representative of its type. Moreover,
-the generated code can lead to issues where it would not be able to render the entire code sets based on their uniform probabilities of
-generating specific fragments of code. For example, a compound statement contains more code than an assignment or declarative statement, and
+the generated code can lead to issues where it would not be able to render the entire code set based on their uniform probabilities. For example,
+a compound statement contains more code than an assignment or declarative statement, and
 generally their probabilities could be altered so that the generated code does not lead to an exception where the storage or number of
 bytes allocated in memory is insufficient to hold such large values or expressions. Also, the calculations in the expressions do not
 follow the correct order of operations as there are no parentheses which could lead to operator exceptions. In this generated code we also
