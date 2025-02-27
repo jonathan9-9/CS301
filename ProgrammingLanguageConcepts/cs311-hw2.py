@@ -73,3 +73,9 @@ def define_type():
 
 def create_operator():
     return random.choice(["+", "-", "*", "/"])
+
+
+def create_id():
+    first_char = str(random.choice(string.ascii_letters + "_"))
+    remaining_chars = ''.join(random.choice(list(string.ascii_letters + string.digits + "_")) for _ in range(2))
+    return first_char + remaining_chars
