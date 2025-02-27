@@ -23,3 +23,7 @@ def create_stat(depth):
 
     return random.choice([create_cmpd_stat, create_if_stat, create_iter_stat,
                          lambda d: create_assgn_stat(), create_decl_stat])(depth)
+
+
+def create_cmpd_stat(depth):
+    return f"{{ {create_stat_list(depth + 1)} }}"
