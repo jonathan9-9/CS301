@@ -15,3 +15,11 @@ def create_stat_list(depth):
     first_statement = create_stat(depth + 1)
     second_statement = create_stat(depth + 1)
     return first_statement + second_statement
+
+
+def create_stat(depth):
+    if depth >= LIMIT_RECURSION:
+        return create_assgn_stat()
+
+    return random.choice([create_cmpd_stat, create_if_stat, create_iter_stat,
+                         lambda d: create_assgn_stat(), create_decl_stat])(depth)
