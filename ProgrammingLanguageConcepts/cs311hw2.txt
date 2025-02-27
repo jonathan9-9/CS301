@@ -1,7 +1,9 @@
+(Question 1)
+
 import random
 import string
 
-LIMIT_RECURSION = 5
+LIMIT_RECURSION = 3
 
 
 def program():
@@ -61,10 +63,8 @@ def create_decl_stat(depth):
 
 
 def create_expression():
-    if random.random() > 0.50:
-        return (f"{random.choice([create_id(), create_const()])} {create_operator()}"
-                f"{random.choice([create_id(), create_const()])}"
-                )
+    if random.random() > 0.5:
+        return f"{random.choice([create_id(), create_const()])} {create_operator()}"
     else:
         return random.choice([create_id(), create_const()])
 
@@ -93,3 +93,46 @@ if __name__ == "__main__":
     with open("generatedCode.cpp", "w") as f:
         f.write(code)
         f.close()
+
+(Question 2)
+
+Generated Code #1
+
+int main() {
+  if (hso)
+    float KHy = 771;
+  else
+    while (243 / gik) {
+      XdJ = 273 * 090;
+      CnN = eEF + 226;
+    }
+  int JfX = 815 + 020;
+  return 0;
+}
+
+
+Generated Code #2
+
+int main() {
+  while (108 - tuG)
+    dKv = www;
+  while (266)
+    if (285 + IyT) {
+      bVB = mLi + NQB;
+      sNH = 794;
+    }
+  return 0;
+}
+
+Some of the issues or errors in the generated C++ code is that while syntactically correct the meaning that the program conveys
+or the semantics is illogically wrong. For example, we have declared but uninitialized variables in control and loop structures
+which should occupy values that convey meaning and parallel operands with those with which are involved within the operation itself.
+The other error is that although certain values are initialized to their variables the value is not representative of its type. Moreover,
+the generated code can lead to issues where it would not be able to render the entire code sets based on their uniform probabilities of
+generating specific fragments of code. For example, a compound statement contains more code than an assignment or declarative statement, and
+generally their probabilities could be altered so that the generated code does not lead to an exception where the storage or number of
+bytes allocated in memory is insufficient to hold such large values or expressions. Also, the calculations in the expressions do not
+follow the correct order of operations as there are no parentheses which could lead to operator exceptions. In this generated code we also
+have undefined and uninitialized variables that can lead to compilation errors. An error with stack overflow or recursion depth errors
+as a cause of not having specific terminating conditions or in expressions within iterations that do not have well-defined behavior
+can lead to ambiguity for the compiler to deduce the logical sequence of execution.

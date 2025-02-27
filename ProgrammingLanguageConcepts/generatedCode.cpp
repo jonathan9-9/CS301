@@ -1,10 +1,12 @@
 int main() {
-  while (108 - tuG)
-    dKv = www;
-  while (266)
-    if (285 + IyT) {
-      bVB = mLi + NQB;
-      sNH = 794;
+  if (556 + fLF)
+    while (935 * U_W)
+      buW = 163 / 601;
+  {
+    float xKp;
+    if (379 - bP5) {
+      r_n = 938;
     }
+  }
   return 0;
 }
