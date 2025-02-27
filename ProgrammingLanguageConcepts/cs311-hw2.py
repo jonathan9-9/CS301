@@ -27,3 +27,15 @@ def create_stat(depth):
 
 def create_cmpd_stat(depth):
     return f"{{ {create_stat_list(depth + 1)} }}"
+
+
+def create_if_stat(depth):
+
+    return random.choice([
+        f"if ({create_expression()}) {create_stat(depth + 1)}",
+        f"if ({create_expression()}) {create_cmpd_stat(depth + 1)}",
+        f"if ({create_expression()}) {create_stat(depth + 1)} else {create_stat(depth + 1)}",
+        f"if ({create_expression()}) {create_cmpd_stat(depth + 1)} else {create_stat(depth + 1)}",
+        f"if ({create_expression()}) {create_stat(depth + 1)} else {create_cmpd_stat(depth + 1)}",
+        f"if ({create_expression()}) {create_cmpd_stat(depth + 1)} else {create_cmpd_stat(depth + 1)}",
+    ])
