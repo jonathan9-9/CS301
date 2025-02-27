@@ -45,3 +45,7 @@ def create_iter_stat(depth):
 
     body = create_stat(depth + 1) if random.choice([True, False]) else create_cmpd_stat(depth + 1)
     return f"while ({create_expression()}) {body}"
+
+
+def create_assgn_stat():
+    return f"{create_id()} = {create_expression()};"
