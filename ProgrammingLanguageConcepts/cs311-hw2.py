@@ -58,3 +58,10 @@ def create_decl_stat(depth):
         f"{var_type} {var_name};",
         f"{var_type} {var_name} = {create_expression()};"
     ])
+
+
+def create_expression():
+    if random.random() > 0.5:
+        return f"{random.choice([create_id(), create_const()])} {create_operator()}"
+    else:
+        return random.choice([create_id(), create_const()])
