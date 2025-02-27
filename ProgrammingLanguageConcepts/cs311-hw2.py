@@ -49,3 +49,12 @@ def create_iter_stat(depth):
 
 def create_assgn_stat():
     return f"{create_id()} = {create_expression()};"
+
+
+def create_decl_stat(depth):
+    var_type = define_type()
+    var_name = create_id()
+    return random.choice([
+        f"{var_type} {var_name};",
+        f"{var_type} {var_name} = {create_expression()};"
+    ])
