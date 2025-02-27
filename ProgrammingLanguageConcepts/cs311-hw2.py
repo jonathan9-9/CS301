@@ -79,3 +79,8 @@ def create_id():
     first_char = str(random.choice(string.ascii_letters + "_"))
     remaining_chars = ''.join(random.choice(list(string.ascii_letters + string.digits + "_")) for _ in range(2))
     return first_char + remaining_chars
+
+
+def create_const():
+    constant = str(random.choice(string.digits)) + ''.join(random.choice(list(string.digits)) for _ in range(2))
+    return constant
