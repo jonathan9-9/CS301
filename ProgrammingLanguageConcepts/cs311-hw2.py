@@ -1,7 +1,7 @@
 import random
 import string
 
-LIMIT_RECURSION = 3
+LIMIT_RECURSION = 5
 
 
 def program():
@@ -62,7 +62,9 @@ def create_decl_stat(depth):
 
 def create_expression():
     if random.random() > 0.5:
-        return f"{random.choice([create_id(), create_const()])} {create_operator()}"
+        return (f"{random.choice([create_id(), create_const()])} {create_operator()}"
+                f"{random.choice([create_id(), create_const()])}"
+                )
     else:
         return random.choice([create_id(), create_const()])
 

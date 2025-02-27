@@ -1,11 +1,10 @@
 int main() {
-  while (188)
-    if (366 +) {
-      PYL = 896;
+  while (108 - tuG)
+    dKv = www;
+  while (266)
+    if (285 + IyT) {
+      bVB = mLi + NQB;
+      sNH = 794;
     }
-  {
-    Txz = 565 + ;
-    vrD = 687;
-  }
   return 0;
 }
