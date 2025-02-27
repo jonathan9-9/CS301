@@ -1,7 +1,7 @@
 import random
 import string
 
-LIMIT_RECURSION = 2
+LIMIT_RECURSION = 3
 
 
 def program():
