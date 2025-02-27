@@ -65,3 +65,11 @@ def create_expression():
         return f"{random.choice([create_id(), create_const()])} {create_operator()}"
     else:
         return random.choice([create_id(), create_const()])
+
+
+def define_type():
+    return random.choice(["int", "float"])
+
+
+def create_operator():
+    return random.choice(["+", "-", "*", "/"])
